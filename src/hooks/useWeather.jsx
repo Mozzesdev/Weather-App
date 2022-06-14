@@ -32,7 +32,6 @@ const useWeather = () => {
     setLoading(true);
     if (city) {
       getFormatWeatherData({ q: city, units: "metric" }).then((data) => {
-        console.log(data);
         setWeather(data);
         setLoading(false);
       });
