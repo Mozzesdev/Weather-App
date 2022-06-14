@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import Search from "./Search";
 import { useMain } from "../context/mainContext";
+import SearchRes from "./SearchRes";
 
 const Nav = ({ weather, loading }) => {
   const [openModal, setOpenModal] = useState(false);
@@ -13,10 +14,9 @@ const Nav = ({ weather, loading }) => {
       <NavBar>
         <NavItem>
           <h1>WEATHER</h1>
-          
         </NavItem>
         <NavItem>
-        <motion.div
+          <motion.div
             className="nav-item__zone"
             whileHover={{ rotate: ["0deg", "1deg", "0deg", "1deg", "0deg"] }}
             onClick={() => setOpenModal(!openModal)}
@@ -27,20 +27,22 @@ const Nav = ({ weather, loading }) => {
               setCity={setCity}
               loading={loading}
             />{" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 2 25 20"
-              fill="#fff"
-            >
-              <path d="M12 14c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2z"></path>
-              <path d="M11.42 21.814a.998.998 0 0 0 1.16 0C12.884 21.599 20.029 16.44 20 10c0-4.411-3.589-8-8-8S4 5.589 4 9.995c-.029 6.445 7.116 11.604 7.42 11.819zM12 4c3.309 0 6 2.691 6 6.005.021 4.438-4.388 8.423-6 9.73-1.611-1.308-6.021-5.294-6-9.735 0-3.309 2.691-6 6-6z"></path>
-            </svg>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 2 25 20"
+                fill="#fff"
+              >
+                <path d="M12 14c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2z"></path>
+                <path d="M11.42 21.814a.998.998 0 0 0 1.16 0C12.884 21.599 20.029 16.44 20 10c0-4.411-3.589-8-8-8S4 5.589 4 9.995c-.029 6.445 7.116 11.604 7.42 11.819zM12 4c3.309 0 6 2.691 6 6.005.021 4.438-4.388 8.423-6 9.73-1.611-1.308-6.021-5.294-6-9.735 0-3.309 2.691-6 6-6z"></path>
+              </svg>
+            </div>
             <p>
-              Weather in the "{weather.name}"<span>/</span>
+              Weather in "{weather.name}"<span>/</span>
+              {weather.country}
             </p>
-            {weather.country}
             <motion.div
               animate={openModal ? { rotate: 180 } : { rotate: 0 }}
               transition={{ duration: 0.4 }}
@@ -58,6 +60,12 @@ const Nav = ({ weather, loading }) => {
           </motion.div>
         </NavItem>
       </NavBar>
+
+      <SearchRes
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        weather={weather}
+      />
     </ContainerNav>
   );
 };
@@ -68,6 +76,9 @@ const ContainerNav = styled.div`
   width: 100%;
   background-color: transparent;
   margin-bottom: 120px;
+  @media (max-width: 340px) {
+    margin-bottom: 50px;
+  }
 `;
 
 const NavBar = styled.nav`
@@ -96,7 +107,21 @@ const NavItem = styled.div`
       margin: 0 5px;
     }
   }
-  h2 {
-    margin-left: 80px;
+
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 20px;
+    }
+    .nav-item__zone {
+      font-size: 13px;
+      p {
+        width: 110px;
+      }
+    }
+  }
+  @media (max-width: 340px) {
+    .nav-item__zone {
+      display: none;
+    }
   }
 `;

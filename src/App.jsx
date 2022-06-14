@@ -10,15 +10,11 @@ function App() {
   const { weather, loading, error, setError } = useWeather();
 
   if (loading) {
-    return (
-        <Spinner />
-    );
+    return <Spinner />;
   }
 
   if (error) {
-    return (
-      <ErrorFetching setError={setError} />
-    )
+    return <ErrorFetching setError={setError} />;
   }
 
   return (
@@ -48,4 +44,7 @@ const GlobalContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (max-width: 340px) {
+    padding: 20px 0;
+  }
 `;

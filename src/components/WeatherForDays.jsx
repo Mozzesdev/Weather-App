@@ -80,7 +80,7 @@ const ContainerDays = styled.div`
   width: 97%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   gap: 10px;
   place-items: center;
   .days-item {

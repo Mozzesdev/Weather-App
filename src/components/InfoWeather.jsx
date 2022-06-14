@@ -157,6 +157,9 @@ const Container = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   gap: 40px;
+  @media (max-width: 440px) {
+    justify-content: flex-start;
+  }
 `;
 
 const FirstContent = styled.div`
@@ -222,12 +225,66 @@ const FirstContent = styled.div`
       }
     }
   }
+  @media (max-width: 600px) {
+    .item-content__1 {
+      img {
+        width: 70px;
+        transform: scale(1.2);
+      }
+    }
+    .item-content__2 {
+      margin-left: 20px;
+      h3 {
+        font-size: 14px;
+      }
+      .temperature__prin {
+        font-size: 50px;
+      }
+      .feels-like {
+        font-size: 14px;
+      }
+    }
+    .item-content__3 {
+      margin-left: 20px;
+      justify-content: space-between;
+      .more-details__current {
+        font-weight: 600;
+        font-size: 14px;
+      }
+    }
+  }
+  @media (max-width: 440px) {
+    flex-direction: column;
+    .item-content__1 {
+      margin: 0 0 20px 0;
+      img {
+        width: 70px;
+        transform: scale(1.2);
+      }
+    }
+    .item-content__2 {
+      margin-left: 0;
+      p {
+        margin: 4px 0;
+      }
+    }
+    .item-content__3 {
+      margin-top: 20px;
+      margin-left: 0;
+      justify-content: space-between;
+      .more-details__current {
+        margin-bottom: 5px;
+      }
+    }
+  }
 `;
 
 const SecondContent = styled.div`
   background-color: #00000019;
   backdrop-filter: blur(2px);
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   padding: 15px 20px 25px 20px;
   .hours-info {
     color: #fff;
