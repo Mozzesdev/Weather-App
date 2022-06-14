@@ -76,7 +76,7 @@ const ContainerNav = styled.div`
   width: 100%;
   background-color: transparent;
   margin-bottom: 120px;
-  @media (max-width: 340px) {
+  @media (max-width: 400px) {
     margin-bottom: 50px;
   }
 `;
@@ -119,7 +119,7 @@ const NavItem = styled.div`
       }
     }
   }
-  @media (max-width: 380px) {
+  @media (max-width: 400px) {
     .nav-item__zone {
       display: none;
     }

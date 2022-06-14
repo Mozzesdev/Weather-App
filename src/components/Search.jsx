@@ -13,7 +13,8 @@ const Search = ({ setCity, open, loading }) => {
         <Form
           onSubmit={handleSubmit}
           onClick={(e) => e.stopPropagation()}
-          animate={open ? { height: ["0px", "90px"] } : { height: ["90px", "0px"]}}
+          initial={{height: "0px", opacity: 0}}
+          animate={open ? { height: ["0px", "90px"], opacity: 1 } : { height: ["90px", "0px"], opacity: 0 }}
           transition={{duration: 0.5}}
         >
           <input

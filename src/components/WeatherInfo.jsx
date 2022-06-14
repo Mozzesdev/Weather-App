@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { iconUrlFromCode } from "../utils/getWeather";
-import { weathersVideos } from "../utils/listAllWeatherData";
 import InfoWeather from "./InfoWeather";
 import WeatherForDays from "./WeatherForDays";
 
