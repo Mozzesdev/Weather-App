@@ -119,7 +119,7 @@ const NavItem = styled.div`
       }
     }
   }
-  @media (max-width: 340px) {
+  @media (max-width: 380px) {
     .nav-item__zone {
       display: none;
     }

@@ -67,7 +67,7 @@ const NavItem = styled.div`
       margin: 0 5px;
     }
   }
-  @media (max-width: 340px) {
+  @media (max-width: 380px) {
     display: flex;
   }
 `;
